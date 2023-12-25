@@ -69,6 +69,13 @@ func reduce(in <-chan string, done chan<- jetsam.DoneChanMsg) {
 			break
 		}
 	}
+	if len(ages) == 0 {
+		done <- jetsam.DoneChanMsg{
+			Text:  "no content found",
+			Count: 0,
+		}
+		return
+	}
 	age, who := findMedium(ages)
 	if who != nil {
 		done <- jetsam.DoneChanMsg{
