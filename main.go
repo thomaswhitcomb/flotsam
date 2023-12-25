@@ -39,6 +39,7 @@ func main() {
 		ItemDepth:      100,
 		ProcessorCount: 3,
 		Sources:        urls,
+		Reducer:        reduce,
 	}
 	ppl.Provision()
 	ppl.Run()
