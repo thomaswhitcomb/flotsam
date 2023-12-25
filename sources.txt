@@ -1,0 +1,5 @@
+file:///home/tom/crowdstrike/flotsam/data/file1.csv
+file:///home/tom/crowdstrike/flotsam/data/file2.csv
+file:///home/tom/crowdstrike/flotsam/data/file3.csv
+file:///home/tom/crowdstrike/flotsam/data/file4.csv
+file:///home/tom/crowdstrike/flotsam/data/file5.csv
