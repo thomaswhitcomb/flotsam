@@ -2,11 +2,8 @@ package main
 
 import (
 	"bufio"
-	"errors"
-	"fmt"
 	"io"
 	"os"
-	"strings"
 
 	"github.com/thomaswhitcomb/jetsam"
 )
@@ -21,21 +18,23 @@ func loadURLs(in io.Reader) []string {
 }
 
 func main() {
-	myLoader := func(url string) (io.Reader, error) {
-		if strings.HasPrefix(url, "file:") {
-			name := url[5:]
-			fmt.Println("name", name)
-			file, err := os.Open(name)
-			if err != nil {
-				return nil, err
+	/*
+		myLoader := func(url string) (io.Reader, error) {
+			if strings.HasPrefix(url, "file:") {
+				name := url[5:]
+				fmt.Println("name", name)
+				file, err := os.Open(name)
+				if err != nil {
+					return nil, err
+				}
+				return bufio.NewReader(file), nil
 			}
-			return bufio.NewReader(file), nil
+			return nil, errors.New("Source must have file scheme")
 		}
-		return nil, errors.New("Source must have file scheme")
-	}
+	*/
 	urls := loadURLs(os.Stdin)
 	ppl := jetsam.Pipeline{
-		Loader:         myLoader,
+		//		Loader:         myLoader,
 		ItemDepth:      100,
 		ProcessorCount: 3,
 		Sources:        urls,
