@@ -42,7 +42,7 @@ func main() {
 	urls := loadURLs(os.Stdin)
 	ppl := jetsam.Pipeline{
 		//		Loader:         myLoader,
-		ItemDepth:      100,
+		BufferSize:     100,
 		ProcessorCount: *n,
 		Sources:        urls,
 		Reducer:        reduce,
