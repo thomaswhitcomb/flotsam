@@ -1,7 +1,7 @@
-http://localhost:8100/file1.csv
-http://localhost:8100/file2.csv
-http://localhost:8100/file3.csv
-http://localhost:8100/file4.csv
-http://localhost:8100/file5.csv
-http://localhost:8100/file6_bad.csv
-http://localhost:8100/file9_bad.csv
+http://localhost:8080/file1.csv
+http://localhost:8080/file2.csv
+http://localhost:8080/file3.csv
+http://localhost:8080/file4.csv
+http://localhost:8080/file5.csv
+http://localhost:8080/file6_bad.csv
+http://localhost:8080/file9_bad.csv

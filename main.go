@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"io"
 	"os"
 
@@ -32,11 +33,17 @@ func main() {
 			return nil, errors.New("Source must have file scheme")
 		}
 	*/
+	n := flag.Int(
+		"n",
+		3,
+		"number of goroutines processing CSV files")
+	flag.Parse()
+
 	urls := loadURLs(os.Stdin)
 	ppl := jetsam.Pipeline{
 		//		Loader:         myLoader,
 		ItemDepth:      100,
-		ProcessorCount: 3,
+		ProcessorCount: *n,
 		Sources:        urls,
 		Reducer:        reduce,
 	}
