@@ -113,7 +113,7 @@ func reduce(in <-chan string, done chan<- jetsam.DoneChanMsg) {
 	}
 	done <- jetsam.DoneChanMsg{
 		Results: jetsam.DoneParms{
-			"median":  fmt.Sprintf("%f", float64(age)),
+			"median":  fmt.Sprintf("%f", age),
 			"average": fmt.Sprintf("%f", float64(tot)/float64(n)),
 			"names":   names,
 			"count":   fmt.Sprintf("%d", len(who)),
