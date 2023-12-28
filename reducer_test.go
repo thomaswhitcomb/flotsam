@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"testing"
 
@@ -134,4 +135,26 @@ func TestReduceSad(t *testing.T) {
 	if msg.NumberProcessed != 0 {
 		t.Errorf("Expecting NumberProcessed of 1, got: %d\n", msg.NumberProcessed)
 	}
+}
+func TestReduceHappyEven(t *testing.T) {
+	in := make(chan string, 9)
+	done := make(chan jetsam.DoneChanMsg, 1)
+
+	in <- "dinah,dog,14"
+	in <- "bobby,riggs,99"
+	in <- "baby,nextdoor,2"
+	in <- "pope,bulluck,66"
+	close(in)
+	reduce(in, done)
+	msg := <-done
+	if atof(msg.Results["average"]) != 45.25 {
+		t.Errorf("Expecting average of 45.25, got %f\n", atof(msg.Results["average"]))
+	}
+	if atof(msg.Results["median"]) != 40 {
+		t.Errorf("Expecting average of 40, got %f\n", atof(msg.Results["average"]))
+	}
+	if msg.NumberProcessed != 4 {
+		t.Errorf("Expecting NumberProcessed of 1, got: %d\n", msg.NumberProcessed)
+	}
+	fmt.Println(msg.Results["names"])
 }
