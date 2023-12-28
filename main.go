@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	"io"
 	"os"
 
@@ -48,5 +49,6 @@ func main() {
 		Reducer:        reduce,
 	}
 	ppl.Provision()
-	ppl.Run()
+	result := ppl.Run()
+	fmt.Printf("%v\n", result)
 }
