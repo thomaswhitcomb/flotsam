@@ -49,8 +49,17 @@ func main() {
 	}
 	ppl.Provision()
 	result := ppl.Run()
-	fmt.Printf("Average: %s\n", result.Results["average"])
-	fmt.Printf("Median: %s\n", result.Results["median"])
-	fmt.Printf("Number of people with median age: %s\n", result.Results["count"])
-	fmt.Printf("Names: %s\n", result.Results["names"])
+	fmt.Printf(
+		"Average: %s\n",
+		result.Results["average"])
+
+	fmt.Printf(
+		"Median: %s\n",
+		result.Results["median"])
+	fmt.Printf(
+		"Number of people with median age: %s\n",
+		result.Results["count"])
+	fmt.Printf(
+		"Names: %s\n",
+		result.Results["names"])
 }
