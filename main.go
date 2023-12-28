@@ -42,7 +42,6 @@ func main() {
 
 	urls := loadURLs(os.Stdin)
 	ppl := jetsam.Pipeline{
-		//		Loader:         myLoader,
 		BufferSize:     100,
 		ProcessorCount: *n,
 		Sources:        urls,
@@ -50,5 +49,8 @@ func main() {
 	}
 	ppl.Provision()
 	result := ppl.Run()
-	fmt.Printf("%v\n", result)
+	fmt.Printf("Average: %s\n", result.Results["average"])
+	fmt.Printf("Median: %s\n", result.Results["median"])
+	fmt.Printf("Number of people with median age: %s\n", result.Results["count"])
+	fmt.Printf("Names: %s\n", result.Results["names"])
 }
